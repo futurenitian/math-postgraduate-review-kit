@@ -55,3 +55,14 @@ def test_integral_problem_values_are_valid() -> None:
         assert isinstance(problem["tags"], list) and problem["tags"]
         assert all(isinstance(tag, str) and tag.strip() for tag in problem["tags"])
 
+
+def test_integral_problem_formulas_use_latex_delimiters() -> None:
+    problems = load_problems()
+
+    for problem in problems:
+        combined_text = " ".join(
+            str(problem[field]) for field in ("question", "answer", "solution")
+        )
+        assert "$" in combined_text
+        assert "∫" not in combined_text
+

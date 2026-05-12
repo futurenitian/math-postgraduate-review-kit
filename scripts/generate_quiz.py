@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -9,12 +10,12 @@ PROBLEM_FILE = ROOT / "problems" / "integrals.json"
 OUTPUT_FILE = ROOT / "quiz.md"
 
 
-def load_problems() -> list[dict[str, object]]:
+def load_problems() -> list[dict[str, Any]]:
     with PROBLEM_FILE.open("r", encoding="utf-8") as file:
         return json.load(file)
 
 
-def render_quiz(problems: list[dict[str, object]]) -> str:
+def render_quiz(problems: list[dict[str, Any]]) -> str:
     lines = [
         "# 考研数学积分专题练习",
         "",

@@ -16,13 +16,25 @@
 
 常见公式：
 
-```text
-∫ x^a dx = x^(a+1)/(a+1) + C, a ≠ -1
-∫ 1/x dx = ln|x| + C
-∫ e^x dx = e^x + C
-∫ sin x dx = -cos x + C
-∫ cos x dx = sin x + C
-```
+$$
+\int x^a\,dx = \frac{x^{a+1}}{a+1} + C,\quad a \ne -1
+$$
+
+$$
+\int \frac{1}{x}\,dx = \ln |x| + C
+$$
+
+$$
+\int e^x\,dx = e^x + C
+$$
+
+$$
+\int \sin x\,dx = -\cos x + C
+$$
+
+$$
+\int \cos x\,dx = \sin x + C
+$$
 
 ## 二、定积分
 
@@ -30,26 +42,37 @@
 
 重要性质：
 
-1. 区间可加性：`∫[a,b] f(x) dx = ∫[a,c] f(x) dx + ∫[c,b] f(x) dx`
+1. 区间可加性：$\int_a^b f(x)\,dx = \int_a^c f(x)\,dx + \int_c^b f(x)\,dx$
 2. 奇偶性：
-   - 若 `f(x)` 为奇函数，则 `∫[-a,a] f(x) dx = 0`
-   - 若 `f(x)` 为偶函数，则 `∫[-a,a] f(x) dx = 2∫[0,a] f(x) dx`
-3. 估值性质：若 `m <= f(x) <= M`，则 `m(b-a) <= ∫[a,b] f(x) dx <= M(b-a)`
+   - 若 $f(x)$ 为奇函数，则 $\int_{-a}^{a} f(x)\,dx = 0$
+   - 若 $f(x)$ 为偶函数，则 $\int_{-a}^{a} f(x)\,dx = 2\int_0^a f(x)\,dx$
+3. 估值性质：若 $m \le f(x) \le M$，则 $m(b-a) \le \int_a^b f(x)\,dx \le M(b-a)$
 
 ## 三、反常积分
 
-反常积分主要处理无穷区间或被积函数在区间内无界的情形。判断敛散性时，常使用比较判别法、等价无穷小和 p 型积分结论。
+反常积分主要处理无穷区间或被积函数在区间内无界的情形。判断敛散性时，常使用比较判别法、等价无穷小和 $p$ 型积分结论。
 
 典型结论：
 
-```text
-∫[1,+∞] 1/x^p dx 当 p > 1 时收敛，当 p <= 1 时发散。
-∫[0,1] 1/x^p dx 当 p < 1 时收敛，当 p >= 1 时发散。
-```
+$$
+\int_1^{+\infty} \frac{1}{x^p}\,dx
+\begin{cases}
+\text{收敛}, & p > 1,\\
+\text{发散}, & p \le 1.
+\end{cases}
+$$
+
+$$
+\int_0^1 \frac{1}{x^p}\,dx
+\begin{cases}
+\text{收敛}, & p < 1,\\
+\text{发散}, & p \ge 1.
+\end{cases}
+$$
 
 ## 四、常见失分点
 
-1. 忘记不定积分常数 `C`。
+1. 忘记不定积分常数 $C$。
 2. 定积分换元后没有同步修改上下限。
 3. 分部积分时符号错误。
 4. 反常积分只计算形式结果，没有判断极限是否存在。
