@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -8,11 +9,31 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 PROBLEM_FILE = ROOT / "problems" / "integrals.json"
 OUTPUT_FILE = ROOT / "quiz.md"
+INLINE_MATH_RE = re.compile(r"\$([^$]+)\$")
 
 
 def load_problems() -> list[dict[str, Any]]:
     with PROBLEM_FILE.open("r", encoding="utf-8") as file:
         return json.load(file)
+
+
+def render_question(question: str) -> list[str]:
+    match = INLINE_MATH_RE.search(question)
+    if not match or r"\int" not in match.group(1):
+        return [f"**题目：** {question}"]
+
+    prefix = question[: match.start()].strip()
+    formula = match.group(1).strip()
+    suffix = question[match.end() :].strip()
+
+    if suffix == "。":
+        suffix = ""
+
+    lines = [f"**题目：** {prefix}", "", "$$", formula, "$$"]
+    if suffix:
+        lines.extend(["", suffix])
+
+    return lines
 
 
 def render_quiz(problems: list[dict[str, Any]]) -> str:
@@ -33,14 +54,10 @@ def render_quiz(problems: list[dict[str, Any]]) -> str:
                 "",
                 f"**标签：** {tags}",
                 "",
-                f"**题目：** {problem['question']}",
-                "",
-                "**作答区：**",
-                "",
-                "> ",
-                "",
             ]
         )
+        lines.extend(render_question(str(problem["question"])))
+        lines.extend(["", "**作答区：**", "", "> ", ""])
 
     return "\n".join(lines).rstrip() + "\n"
 
@@ -53,4 +70,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
