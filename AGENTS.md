@@ -41,6 +41,11 @@ python scripts/generate_quiz.py
 
 本仓库采用 GitHub-first 的数学公式渲染规则。修改任何 Markdown、题库或生成脚本时，都应优先保证推送到 GitHub 后能稳定渲染，而不是只以本地预览效果为准。
 
+- 禁止把 Markdown、Python、JSON 文件压缩成单行或少量超长行。
+- GitHub Raw 文件中的真实换行必须正确，不能依赖编辑器或网页的视觉自动换行。
+- Markdown 标题、段落、列表项和公式块都要使用真实换行分隔。
+- Python 文件必须保持正常缩进，import、函数定义、循环、条件和 return 等语句应各自独立成行。
+- JSON 文件使用 2 个空格缩进格式化，保持字段结构清晰。
 - 长公式必须使用行间公式，并严格写成：
 
 ```markdown

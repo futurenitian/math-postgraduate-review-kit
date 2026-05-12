@@ -68,7 +68,8 @@ def render_quiz(problems: list[dict[str, Any]]) -> str:
 
 def main() -> None:
     problems = load_problems()
-    OUTPUT_FILE.write_text(render_quiz(problems), encoding="utf-8")
+    with OUTPUT_FILE.open("w", encoding="utf-8", newline="\n") as file:
+        file.write(render_quiz(problems))
     print(f"已生成 {OUTPUT_FILE.name}，共 {len(problems)} 道题。")
 
 

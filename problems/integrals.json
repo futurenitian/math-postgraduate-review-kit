@@ -23,7 +23,7 @@
     "difficulty": "中等",
     "question": "计算不定积分：$\\int x e^x \\mathrm{d}x$。",
     "answer": "$(x - 1)e^x + C$",
-    "solution": "使用分部积分，取 $u = x$，$\\mathrm{d}v = e^x\\mathrm{d}x$，则 $\\mathrm{d}u = \\mathrm{d}x$，$v = e^x$，所以 $\\int x e^x \\mathrm{d}x = x e^x - \\int e^x \\mathrm{d}x = (x - 1)e^x + C$。",
+    "solution": "分部积分，取 $u = x$，$\\mathrm{d}v = e^x\\mathrm{d}x$，则 $\\int x e^x \\mathrm{d}x = x e^x - \\int e^x \\mathrm{d}x = (x - 1)e^x + C$。",
     "tags": ["不定积分", "分部积分"]
   },
   {
@@ -41,7 +41,7 @@
     "difficulty": "提高",
     "question": "计算定积分：$\\int_0^{\\pi/2} \\sin^3 x \\mathrm{d}x$。",
     "answer": "$\\frac{2}{3}$",
-    "solution": "$\\sin^3 x = \\sin x(1 - \\cos^2 x)$。令 $u = \\cos x$，则 $\\mathrm{d}u = -\\sin x\\mathrm{d}x$。原积分等于 $\\int_0^1 (1 - u^2) \\mathrm{d}u = \\left[u - \\frac{u^3}{3}\\right]_0^1 = \\frac{2}{3}$。",
+    "solution": "由 $\\sin^3 x = \\sin x(1 - \\cos^2 x)$，令 $u = \\cos x$，原积分为 $\\int_0^1 (1 - u^2) \\mathrm{d}u = \\left[u - \\frac{u^3}{3}\\right]_0^1 = \\frac{2}{3}$。",
     "tags": ["定积分", "三角函数", "换元法"]
   }
 ]

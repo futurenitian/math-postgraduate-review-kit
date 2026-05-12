@@ -10,6 +10,15 @@ MARKDOWN_PATHS = [
     ROOT / "quiz.md",
     *sorted((ROOT / "topics").glob("*.md")),
 ]
+STRUCTURED_TEXT_PATHS = [
+    ROOT / "README.md",
+    ROOT / "AGENTS.md",
+    ROOT / "quiz.md",
+    ROOT / "scripts" / "generate_quiz.py",
+    ROOT / "tests" / "test_problem_format.py",
+    ROOT / "problems" / "integrals.json",
+    *sorted((ROOT / "topics").glob("*.md")),
+]
 
 
 def iter_lines() -> list[tuple[Path, int, str]]:
@@ -61,3 +70,25 @@ def test_no_thin_space_before_differential() -> None:
             f"{path}:{line_number} 积分微分请使用 \\mathrm{{d}}x 等写法"
         )
 
+
+def test_key_files_keep_real_line_breaks() -> None:
+    minimum_line_counts = {
+        ROOT / "topics" / "integrals.md": 50,
+        ROOT / "quiz.md": 20,
+        ROOT / "scripts" / "generate_quiz.py": 30,
+    }
+
+    for path, minimum in minimum_line_counts.items():
+        line_count = len(path.read_text(encoding="utf-8").splitlines())
+        assert line_count > minimum, f"{path} 需要保留真实多行结构"
+
+
+def test_structured_files_do_not_have_very_long_lines() -> None:
+    for path in STRUCTURED_TEXT_PATHS:
+        if not path.exists():
+            continue
+
+        for line_number, line in enumerate(
+            path.read_text(encoding="utf-8").splitlines(), start=1
+        ):
+            assert len(line) <= 180, f"{path}:{line_number} 行过长，疑似缺少真实换行"
