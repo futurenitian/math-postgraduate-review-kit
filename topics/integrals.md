@@ -17,23 +17,23 @@
 常见公式：
 
 $$
-\int x^a\,dx = \frac{x^{a+1}}{a+1} + C,\quad a \ne -1
+\int x^a \mathrm{d}x = \frac{x^{a+1}}{a+1} + C,\quad a \ne -1
 $$
 
 $$
-\int \frac{1}{x}\,dx = \ln |x| + C
+\int \frac{1}{x} \mathrm{d}x = \ln |x| + C
 $$
 
 $$
-\int e^x\,dx = e^x + C
+\int e^x \mathrm{d}x = e^x + C
 $$
 
 $$
-\int \sin x\,dx = -\cos x + C
+\int \sin x \mathrm{d}x = -\cos x + C
 $$
 
 $$
-\int \cos x\,dx = \sin x + C
+\int \cos x \mathrm{d}x = \sin x + C
 $$
 
 ## 二、定积分
@@ -42,11 +42,11 @@ $$
 
 重要性质：
 
-1. 区间可加性：$\int_a^b f(x)\,dx = \int_a^c f(x)\,dx + \int_c^b f(x)\,dx$
+1. 区间可加性：$\int_a^b f(x) \mathrm{d}x = \int_a^c f(x) \mathrm{d}x + \int_c^b f(x) \mathrm{d}x$
 2. 奇偶性：
-   - 若 $f(x)$ 为奇函数，则 $\int_{-a}^{a} f(x)\,dx = 0$
-   - 若 $f(x)$ 为偶函数，则 $\int_{-a}^{a} f(x)\,dx = 2\int_0^a f(x)\,dx$
-3. 估值性质：若 $m \le f(x) \le M$，则 $m(b-a) \le \int_a^b f(x)\,dx \le M(b-a)$
+   - 若 $f(x)$ 为奇函数，则 $\int_{-a}^{a} f(x) \mathrm{d}x = 0$
+   - 若 $f(x)$ 为偶函数，则 $\int_{-a}^{a} f(x) \mathrm{d}x = 2\int_0^a f(x) \mathrm{d}x$
+3. 估值性质：若 $m \le f(x) \le M$，则 $m(b-a) \le \int_a^b f(x) \mathrm{d}x \le M(b-a)$
 
 ## 三、反常积分
 
@@ -55,7 +55,7 @@ $$
 典型结论：
 
 $$
-\int_1^{+\infty} \frac{1}{x^p}\,dx
+\int_1^{+\infty} \frac{1}{x^p} \mathrm{d}x
 \begin{cases}
 \text{收敛}, & p > 1,\\
 \text{发散}, & p \le 1.
@@ -63,7 +63,7 @@ $$
 $$
 
 $$
-\int_0^1 \frac{1}{x^p}\,dx
+\int_0^1 \frac{1}{x^p} \mathrm{d}x
 \begin{cases}
 \text{收敛}, & p < 1,\\
 \text{发散}, & p \ge 1.
@@ -84,4 +84,3 @@ $$
 2. 每天练习 5 到 10 道计算题，保持手感。
 3. 对典型题进行方法归类，例如“根式换元”“分部积分”“奇偶性”。
 4. 做错题时记录错误类型，而不仅记录正确答案。
-
