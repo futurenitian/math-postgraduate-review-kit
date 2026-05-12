@@ -42,41 +42,41 @@ $$
 
 重要性质：
 
-1. **区间可加性：**
+**1. 区间可加性：**
 
-   $$
-   \int_a^b f(x) \mathrm{d}x
-   =
-   \int_a^c f(x) \mathrm{d}x
-   +
-   \int_c^b f(x) \mathrm{d}x
-   $$
+$$
+\int_a^b f(x) \mathrm{d}x
+=
+\int_a^c f(x) \mathrm{d}x
++
+\int_c^b f(x) \mathrm{d}x
+$$
 
-2. **奇偶性：**
+**2. 奇偶性：**
 
-   - 若 $f(x)$ 为奇函数，则：
+若 $f(x)$ 为奇函数，则：
 
-     $$
-     \int_{-a}^{a} f(x) \mathrm{d}x = 0
-     $$
+$$
+\int_{-a}^{a} f(x) \mathrm{d}x = 0
+$$
 
-   - 若 $f(x)$ 为偶函数，则：
+若 $f(x)$ 为偶函数，则：
 
-     $$
-     \int_{-a}^{a} f(x) \mathrm{d}x
-     =
-     2\int_0^a f(x) \mathrm{d}x
-     $$
+$$
+\int_{-a}^{a} f(x) \mathrm{d}x
+=
+2\int_0^a f(x) \mathrm{d}x
+$$
 
-3. **估值性质：** 若 $m \le f(x) \le M$，则：
+**3. 估值性质：** 若 $m \le f(x) \le M$，则：
 
-   $$
-   m(b-a)
-   \le
-   \int_a^b f(x) \mathrm{d}x
-   \le
-   M(b-a)
-   $$
+$$
+m(b-a)
+\le
+\int_a^b f(x) \mathrm{d}x
+\le
+M(b-a)
+$$
 
 ## 三、反常积分
 

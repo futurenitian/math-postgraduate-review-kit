@@ -17,9 +17,13 @@ def load_problems() -> list[dict[str, Any]]:
         return json.load(file)
 
 
+def should_use_display_math(formula: str) -> bool:
+    return r"\int" in formula or len(formula) > 24
+
+
 def render_question(question: str) -> list[str]:
     match = INLINE_MATH_RE.search(question)
-    if not match or r"\int" not in match.group(1):
+    if not match or not should_use_display_math(match.group(1)):
         return [f"**题目：** {question}"]
 
     prefix = question[: match.start()].strip()
