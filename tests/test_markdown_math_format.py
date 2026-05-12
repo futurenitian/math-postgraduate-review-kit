@@ -33,6 +33,26 @@ def iter_lines() -> list[tuple[Path, int, str]]:
     return lines
 
 
+def iter_display_math_lines() -> list[tuple[Path, int, str]]:
+    math_lines = []
+    for path in MARKDOWN_PATHS:
+        if not path.exists():
+            continue
+
+        in_display_math = False
+        for line_number, line in enumerate(
+            path.read_text(encoding="utf-8").splitlines(), start=1
+        ):
+            if line.strip() == "$$":
+                in_display_math = not in_display_math
+                continue
+
+            if in_display_math:
+                math_lines.append((path, line_number, line))
+
+    return math_lines
+
+
 def test_display_math_delimiters_are_on_their_own_lines() -> None:
     for path, line_number, line in iter_lines():
         if "$$" not in line:
@@ -92,3 +112,12 @@ def test_structured_files_do_not_have_very_long_lines() -> None:
             path.read_text(encoding="utf-8").splitlines(), start=1
         ):
             assert len(line) <= 180, f"{path}:{line_number} 行过长，疑似缺少真实换行"
+
+
+def test_display_math_has_no_standalone_operators() -> None:
+    forbidden_lines = {"=", "+", "-", r"\le", r"\ge", "<", ">"}
+
+    for path, line_number, line in iter_display_math_lines():
+        assert line.strip() not in forbidden_lines, (
+            f"{path}:{line_number} 公式块中不要把运算符单独放一行"
+        )

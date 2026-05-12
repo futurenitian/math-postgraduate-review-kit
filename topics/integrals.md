@@ -45,11 +45,11 @@ $$
 **1. 区间可加性：**
 
 $$
+\begin{aligned}
 \int_a^b f(x) \mathrm{d}x
-=
-\int_a^c f(x) \mathrm{d}x
-+
-\int_c^b f(x) \mathrm{d}x
+&= \int_a^c f(x) \mathrm{d}x \\
+&\quad + \int_c^b f(x) \mathrm{d}x
+\end{aligned}
 $$
 
 **2. 奇偶性：**
@@ -63,19 +63,20 @@ $$
 若 $f(x)$ 为偶函数，则：
 
 $$
+\begin{aligned}
 \int_{-a}^{a} f(x) \mathrm{d}x
-=
-2\int_0^a f(x) \mathrm{d}x
+&= 2\int_0^a f(x) \mathrm{d}x
+\end{aligned}
 $$
 
 **3. 估值性质：** 若 $m \le f(x) \le M$，则：
 
 $$
+\begin{aligned}
 m(b-a)
-\le
-\int_a^b f(x) \mathrm{d}x
-\le
-M(b-a)
+&\le \int_a^b f(x) \mathrm{d}x \\
+&\le M(b-a)
+\end{aligned}
 $$
 
 ## 三、反常积分

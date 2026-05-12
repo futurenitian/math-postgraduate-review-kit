@@ -69,6 +69,19 @@ $$
 $$
 ```
 
+- 块级公式中不要把等号、加号、减号、不等号或比较符号单独放一行，避免 GitHub 把它们误判为 Markdown 标记。
+- 多行等式或多行不等式统一使用 `aligned` 环境，例如：
+
+```markdown
+$$
+\begin{aligned}
+\int_a^b f(x)\mathrm{d}x
+&= \int_a^c f(x)\mathrm{d}x \\
+&\quad + \int_c^b f(x)\mathrm{d}x
+\end{aligned}
+$$
+```
+
 ## Git 约定
 
 - 不修改 Git 配置。
